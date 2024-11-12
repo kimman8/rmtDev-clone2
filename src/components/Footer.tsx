@@ -3,16 +3,16 @@ export default function Footer() {
     <footer className="footer">
       <small>
         <p>
-          © Copyright by{" "}
-          <a href="https://bytegrad.com" target="_blank">
-            ByteGrad.com
+          © Copyright by{' '}
+          <a href="" target="_blank">
+            Kim Man
           </a>
-          . Intended for learning or your portfolio.
+          . All rights reserved.
         </p>
       </small>
 
       <p>
-        <span className="u-bold">109573</span> total jobs available
+        <span className="u-bold">188957</span> total jobs available
       </p>
     </footer>
   );
