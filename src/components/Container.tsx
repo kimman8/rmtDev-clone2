@@ -6,6 +6,7 @@ export default function Container() {
     <div className="container">
       <Sidebar />
       <JobItemContent />
+      <JobItemContent />
     </div>
   );
 }
