@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export default function SearchForm() {
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState('test');
   return (
     <form
       onSubmit={(e) => {
