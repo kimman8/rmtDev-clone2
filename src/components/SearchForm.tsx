@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function SearchForm() {
   const [searchText, setSearchText] = useState('test');
+  useEffect(() => {
+    if (!searchText) return;
+    fetch();
+  }, [searchText]);
   return (
     <form
       onSubmit={(e) => {
@@ -18,6 +22,7 @@ export default function SearchForm() {
         value={searchText}
         onChange={(e) => {
           setSearchText(e.target.value);
+          fetch();
         }}
         spellCheck="false"
         type="text"
