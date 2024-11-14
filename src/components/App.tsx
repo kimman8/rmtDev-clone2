@@ -2,7 +2,16 @@ import { useEffect, useState } from 'react';
 import Background from './Background';
 import Container from './Container';
 import Footer from './Footer';
-import Header from './Header';
+import Header, { HeaderTop } from './Header';
+import SearchForm from './SearchForm';
+import Logo from './Logo';
+import BookmarksButton from './BookmarksButton';
+import Sidebar, { SidebarTop } from './Sidebar';
+import JobItemContent from './JobItemContent';
+import PaginationControls from './PaginationControls';
+import JobList from './JobList';
+import SortingControls from './SortingControls';
+import ResultsCount from './ResultsCount';
 
 function App() {
   const [jobItems, setJobItems] = useState([]);
@@ -21,8 +30,24 @@ function App() {
   return (
     <>
       <Background />
-      <Header setJobItems={setJobItems} searchText={searchText} />
-      <Container jobItems={jobItems} />
+      <Header>
+        <HeaderTop>
+          <Logo />
+          <BookmarksButton />
+        </HeaderTop>
+        <SearchForm setJobItems={setJobItems} searchText={searchText} />
+      </Header>
+      <Container>
+        <Sidebar>
+          <SidebarTop>
+            <ResultsCount />
+            <SortingControls />
+          </SidebarTop>
+          <JobList jobItems={jobItems} />
+          <PaginationControls />
+        </Sidebar>
+        <JobItemContent />
+      </Container>
       <Footer />
     </>
   );
