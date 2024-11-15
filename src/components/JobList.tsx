@@ -1,11 +1,14 @@
 import JobListItem from './JobListItem';
+import Spinner from './Spinner';
 
-export function JobList({ jobItems }) {
+export function JobList({ jobItems, isLoading }) {
   return (
     <ul className="job-list">
-      {jobItems.map((jobItem) => (
-        <JobListItem key={jobItem.id} jobItem={jobItem} />
-      ))}
+      {isLoading && <Spinner />}
+      {!isLoading &&
+        jobItems.map((jobItem) => (
+          <JobListItem key={jobItem.id} jobItem={jobItem} />
+        ))}
     </ul>
   );
 }

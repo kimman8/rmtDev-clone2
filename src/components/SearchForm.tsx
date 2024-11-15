@@ -1,4 +1,4 @@
-export default function SearchForm({ setJobItems, searchText }) {
+export default function SearchForm({ setSearchText, searchText }) {
   return (
     <form
       onSubmit={(e) => {
