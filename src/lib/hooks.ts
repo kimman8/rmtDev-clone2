@@ -17,5 +17,5 @@ export function useJobItems(searchText: string) {
     };
     fetchData();
   }, [searchText]);
-  return { jobItemsSliced, isLoading };
+  return [jobItemsSliced, isLoading];
 }
