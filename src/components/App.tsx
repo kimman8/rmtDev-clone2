@@ -17,6 +17,7 @@ import { useJobItems } from '../lib/hooks';
 function App() {
   const [searchText, setSearchText] = useState([]);
   const [jobItems, isLoading] = useJobItems(searchText);
+  const [activeId, setActiveId] = useState(null);
   return (
     <>
       <Background />
