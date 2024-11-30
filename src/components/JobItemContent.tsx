@@ -1,6 +1,9 @@
+import { useActiveId, useJobItem } from '../lib/hooks';
 import BookmarkIcon from './BookmarkIcon';
 
-export default function JobItemContent({ jobItem }) {
+export default function JobItemContent() {
+  const activeId = useActiveId();
+  const jobItem = useJobItem(activeId);
   if (!jobItem) {
     return <EmptyJobContent />;
   }
@@ -8,16 +11,9 @@ export default function JobItemContent({ jobItem }) {
   return (
     <section className="job-details">
       <div>
-        <img
-          src="https://images.unsplash.com/photo-1610374792793-f016b77ca51a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1272&q=100"
-          alt="#"
-        />
+        <img src={jobItem.coverImgURL} alt="#" />
 
-        <a
-          className="apply-btn"
-          href="https://fictional9thtechwebsite.com/"
-          target="_blank"
-        >
+        <a className="apply-btn" href={jobItem.companyURL} target="_blank">
           Apply
         </a>
 
@@ -32,7 +28,7 @@ export default function JobItemContent({ jobItem }) {
           </div>
 
           <div className="job-info__right">
-            <h2 className="second-heading">{jobItem.company}</h2>
+            <h2 className="second-heading">{jobItem.title}</h2>
             <p className="job-info__company">{jobItem.company}</p>
             <p className="job-info__description">{jobItem.description}</p>
             <div className="job-info__extras">
