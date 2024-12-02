@@ -1,9 +1,13 @@
 import { useActiveId, useJobItem } from '../lib/hooks';
 import BookmarkIcon from './BookmarkIcon';
+import Spinner from './Spinner';
 
 export default function JobItemContent() {
   const activeId = useActiveId();
-  const jobItem = useJobItem(activeId);
+  const [jobItem, isLoading] = useJobItem(activeId);
+  {
+    isLoading && <LoadingJobContent />;
+  }
   if (!jobItem) {
     return <EmptyJobContent />;
   }
@@ -104,6 +108,16 @@ function EmptyJobContent() {
             Start by searching for any technology your ideal job is working with
           </p>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function LoadingJobContent() {
+  return (
+    <section className="job-details">
+      <div>
+        <Spinner />
       </div>
     </section>
   );
