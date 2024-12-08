@@ -12,17 +12,14 @@ import PaginationControls from './PaginationControls';
 import JobList from './JobList';
 import SortingControls from './SortingControls';
 import ResultsCount from './ResultsCount';
-import { useJobItems } from '../lib/hooks';
+import { useDebounce, useJobItems } from '../lib/hooks';
 
 function App() {
   const [searchText, setSearchText] = useState([]);
-  const [debouncedSearchText, setDebouncedSearchText] = useState('');
+  const debouncedSearchText = useDebounce(searchText, 200);
   const { jobItemsSliced, isLoading, totalNumberOfResults } =
     useJobItems(debouncedSearchText);
-  useEffect(() => {
-    const timerId = setTimeout(() => setDebouncedSearchText(searchText), 1500);
-    return () => clearTimeout(timerId);
-  }, [searchText]);
+
   return (
     <>
       <Background />
