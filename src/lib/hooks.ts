@@ -56,7 +56,7 @@ export function useJobItems(searchText: string) {
   return { jobItemsSliced, isLoading, totalNumberOfResults } as const;
 }
 
-export function useDebounce<T>(value: T, delay = 1500): T {
+export function useDebounce<T>(value: T, delay = 1000): T {
   const [debouncedValue, setdebouncedValue] = useState(value);
   useEffect(() => {
     const timerId = setTimeout(() => setdebouncedValue(value), delay);
