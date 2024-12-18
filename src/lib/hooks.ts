@@ -12,7 +12,7 @@ export function useJobItem(id: number | null) {
       return data;
     },
     {
-      staleTime: 1000 * 60 * 5,
+      staleTime: 1000 * 60 * 60,
       refetchOnWindowFocus: false,
       retry: false,
       enabled: Boolean(id),
